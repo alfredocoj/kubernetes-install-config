@@ -1,2 +1,2 @@
-# kubernetes-intall-config
+# kubernetes-install-config
 Tutorial de instalação e configuração do kuberentes.

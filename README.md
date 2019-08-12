@@ -299,7 +299,7 @@ sudo apt update
 sudo apt install kubectl kubelet kubeadm kubernetes-cni
 ```
 
-Confirme se os pacotes foram instalados:
+Confirm that the packages have been installed:
 
 ```
 
@@ -310,13 +310,12 @@ $ which kubeadm
 
 ```
 
-Tudo configurado, é necessário juntar cada nó ao cluster criado no master (observe que o comando a seguir, é saída do comando 'kubeadm init' executado no nó master)
-
+All set up, it is necessary to join each node to the cluster created on the master (note that the following command is output from the command `kubeadm init` executed on the master node)
 ```
 sudo kubeadm join 192.168.6.1:6443 --token mu0y4k.cbbs5f0pskuytuhb --discovery-token-ca-cert-hash sha256:790e9cdacab9e2158d31d7ed89390f089e499587380a66b8db66d03915b6aba9
 ```
 
-A saída do comando, deve ser algo parecido com isso:
+The command output should look something like this:
 
 ```
 ---
@@ -331,15 +330,15 @@ This node has joined the cluster:
 Run 'kubectl get nodes' on the master to see this node join the cluster.
 ```
 
-### Validando Clusterização
-Acesso o servidor do nó master, e com o usuário k8-admin, execute o seguinte comando:
+### Validating Clustering
+Access the master node server, and with user k8-admin, run the following command:
 
 
 ```
 k8s-admin@k8s-master:~$ kubectl get nodes
 ```
 
-O retorno deve ser algo do tipo:
+The return should be something like:
 
 ```
 NAME          STATUS    ROLES     AGE       VERSION
@@ -348,9 +347,9 @@ k8s-node-01   Ready     <none>    2m        v1.11.0
 k8s-node-02   Ready     <none>    1m        v1.11.0
 ```
 
-Nos dois nós, o Weave Net deve ter sido configurado. Pode ser verificado executando os comandos em cada nós agente.
+On both nodes, Weave Net must have been configured. It can be verified by running the commands on each agent nodes.
 
-Nó 1:
+Node 1:
 ```
 root@k8s-node-01:~# ip ad | grep weave
 
@@ -361,7 +360,7 @@ root@k8s-node-01:~# ip ad | grep weave
 
 ```
 
-Nó 2:
+Node 2:
 ```
 root@k8s-node-02:~# ip ad | grep weave
 6: weave: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1376 qdisc noqueue state UP group default qlen 1000
@@ -372,14 +371,14 @@ root@k8s-node-02:~# ip ad | grep weave
 
 ### Subindo uma aplicação para teste
 
-Criando um teste pod para verficar que o cluster rode como o esperado:
+Creating a pod test to verify that the cluster runs as expected:
 
 ```
 k8s-admin@k8s-master:~$ kubectl create namespace test-namespace
 namespace/test-namespace created
 ```
 
-Crie o arquivo de configurações de deploy http-app-deployment.yml, como se segue:
+Create the deploy settings file `http-app-deployment.yml` as follows:
 
 ```
 apiVersion: extensions/v1beta1
@@ -399,21 +398,21 @@ spec:
         ports:
 ```
 
-Criando um namespace (um organizador de deploys):
+Creating a namespace (a deployment organizer):
 
 ```
 k8s-admin@k8s-master:~$ kubectl create namespace test-namespace
     namespace/test-namespace created
 ```
 
-Depois que o namespace for criado, crie um pod usando o objeto de implementação definido anteriormente. -n é usado para especificar o espaço de nomes. Esperamos que três pods sejam criados, já que nosso valor de réplicas é 3.
+After the namespace is created, create a pod using the deployment object defined earlier. -n is used to specify the namespace. We expect three pods to be created as our replica value is 3.
 
 ```
 k8s-admin@k8s-master:~$ kubectl create -n test-namespace -f http-app-deployment.yml
     deployment.extensions/http-app created
 ```
 
-Confirmando a criação das configurações de deployment:
+Confirming the creation of deployment configurations:
 
 ```
 k8s-admin@k8s-master:~$ kubectl -n test-namespace get deployments
@@ -427,7 +426,7 @@ http-app-97f76fcd8-f9bdk   1/1       Running   0          1m
 http-app-97f76fcd8-vgmq7   1/1       Running   0          1m
 ```
 
-Com a implantação criada, podemos usar o kubectl para criar um serviço que expõe os Pods em uma porta específica. Um método alternativo é definir um objeto Service com YAML. Abaixo está nossa definição de serviço.
+With the deployment created, we can use `kubectl` to create a service that exposes Pods on a specific port. An alternative method is to define a Service object with YAML. Below is our definition of service.
 
 ```
 k8s-admin@k8s-master:~$ cat http-app-service.yml 
@@ -446,14 +445,14 @@ spec:
     app: http-app
 ```
 
-Criando serviço:
+Creating service:
 
 ```
 k8s-admin@k8s-master:~$ kubectl -n test-namespace create -f http-app-service.yml 
     service/http-app-svc created
 ```
 
-O serviço estará diponível no Cluster IP e porta 30080. Para obter o CLUSTER IP, execute:
+The service will be available on IP Cluster and port 30080. To obtain IP CLUSTER, run:
 ```
 k8s-admin@k8s-master:~$ kubectl -n test-namespace get svc
 NAME           TYPE       CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE

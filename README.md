@@ -460,29 +460,29 @@ http-app-svc   NodePort   10.5.45.208   <none>        80:30080/TCP   1m
 
 ```
 
-### Após instalação
+### After installation
 
-Ative o preenchimento automático de shell para comandos kubectl, executando o comando:
+Enable shell autocomplete for kubectl commands by running the command:
 ```
 source <(kubectl completion bash)
 ```
 
-Para adicionar autocompletar o kubectl ao seu perfil, ele é automaticamente carregado no futuro.
+To add autocomplete kubectl to your profile, it is automatically loaded in the future.
 
 ```
 echo "source <(kubectl completion bash)" >> ~/.bashrc
 ```
 
 
-### Instalação do Dashboard do Kubernetes
+### Kubernetes Dashboard Installation
 
-### 1. Implante o painel do Kubernetes no cluster:
+### 1. Deploy the Kubernetes Dashboard to the cluster:
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
 ```
 
-Resultado:
+Result:
 
 ```
 secret "kubernetes-dashboard-certs" created
@@ -493,38 +493,38 @@ deployment "kubernetes-dashboard" created
 service "kubernetes-dashboard" created
 ```
 
-### 2. Implante o heapster para habilitar o monitoramento e análise de desempenho do cluster do contêiner no cluster:
+### 2. Deploy heapster to enable container cluster monitoring and performance analysis on the cluster:
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml
 ```
 
-Resultado:
+Result:
 ```
 serviceaccount "heapster" created
 deployment "heapster" created
 service "heapster" created
 ```
 
-3. Implante o back-end influxdb para o heapster no cluster:
+3. Deploy the influxdb backend to the heapster in the cluster:
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml
 ```
 
-Resultado:
+Result:
 
 ```
 deployment "monitoring-influxdb" created
 service "monitoring-influxdb" created
 ```
 
-4.Crie a vinculação da função do cluster do heapster para o painel:
+4.Create the heapster cluster role binding for the dashboard:
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml
 ```
 
-Resultado:
+Result:
 
 ```
 clusterrolebinding "heapster" created
@@ -532,7 +532,7 @@ clusterrolebinding "heapster" created
 
 5. fsefd
 
-Para funcionar o **heapster** é necessário alterar o arquivo de configuração do deployment. Altere conforme se segue:
+To run **heapster** you need to change the deployment configuration file. Change as follows:
 
 ```
 

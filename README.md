@@ -709,7 +709,10 @@ kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-adm
 ```
 
 
-4. Access Dashboard via the link - `http: //:` that you got as part of step 2
+4. Access Dashboard via the link 
+
+- `http://:` that you got as part of step 2
+
 Example: `https://192.168.6.3:31843`
 
 

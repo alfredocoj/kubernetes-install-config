@@ -721,7 +721,7 @@ Example: `https://192.168.6.3:31843`
 [Source 1 - Main: Configuring 3 nodes in cluster kubernetes](https://computingforgeeks.com/how-to-setup-3-node-kubernetes-cluster-on-ubuntu-18-04-with-weave-net-cni/)
 
 
-[Fonte2 - Instalando Kubernetes no CentOS, Ubuntu e Debian](https://www.itzgeek.com/how-tos/linux/centos-how-tos/how-to-install-kubernetes-on-centos-7-ubuntu-18-04-16-04-debian-9.html)
+[Source 2 - Installing Kubernetes on CentOS, Ubuntu and Debian](https://www.itzgeek.com/how-tos/linux/centos-how-tos/how-to-install-kubernetes-on-centos-7-ubuntu-18-04-16-04-debian-9.html)
 
 [Fonte3 - Instalando e configurando um deploy com kuberntes em 5 min](https://codeburst.io/getting-started-with-kubernetes-deploy-a-docker-container-with-kubernetes-in-5-minutes-eb4be0e96370)
 

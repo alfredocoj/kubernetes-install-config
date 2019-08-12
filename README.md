@@ -555,7 +555,7 @@ To run **heapster** you need to change the deployment configuration file. Change
 
 ```
 
-E, em seguida, crie um papel que permita ao heapster operar e vinculá-lo à conta de serviço do heapster:
+And then create a role that allows heapster to operate and link it to the heapster service account:
 
 ```sh
 
@@ -584,21 +584,25 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Execute o comando `kubectl apply -f role-heapster.yaml` e o mesmo retornará algo como:
+Run the command `kubectl apply -f role-heapster.yaml` and it will return something like:
 
 ```sh
 clusterrole.rbac.authorization.k8s.io/node-stats-full created
 clusterrolebinding.rbac.authorization.k8s.io/heapster-node-stats created
 ```
 
-Agora é só seguir as próximas etapas.
+Now just follow the next steps.
 
-_Referências:_ [Fonte 1](https://github.com/awslabs/amazon-eks-ami/issues/128), [Fonte 2](https://github.com/kubernetes/dashboard/issues/3147)
+References:
+
+[Fonte 1](https://github.com/awslabs/amazon-eks-ami/issues/128)
+
+[Fonte 2](https://github.com/kubernetes/dashboard/issues/3147)
 
 
-### Etapa 2: Criar uma conta de serviço do eks-admin e a vinculação de função do cluster
+### Step 2: Create an eks-admin Service Account and Cluster Role Linking
 
-1. Crie um arquivo chamado eks-admin-service-account.yaml com o texto abaixo. Este manifesto define uma conta de serviço e uma vinculação da função do cluster chamadas eks-admin.
+1. Create a file called eks-admin-service-account.yaml with the text below. This manifest defines a service account and cluster role binding called eks-admin.
 
 ```
 apiVersion: v1
@@ -621,7 +625,7 @@ subjects:
   namespace: kube-system
 ```
 
-Aplique a conta de serviço e a vinculação da função do cluster ao cluster:
+Apply the service account and cluster role binding to the cluster:
 ```
 kubectl apply -f eks-admin-service-account.yaml
 ```
@@ -633,10 +637,10 @@ clusterrolebinding.rbac.authorization.k8s.io "eks-admin" created
 ```
 
 
-### Etapa 3: Conectar-se ao painel
+### Step 3: Connect to the Dashboard
 
 
-1.Recupere um token de autenticação para a conta de serviço eks-admin. Copie o valor <authentication_token> da saída. Você usa esse token para se conectar ao painel.
+1.Retrieve an authentication token for the eks-admin service account. Copy the `<authentication_token>` value from the output. You use this token to connect to the dashboard.
 
 ```
 
@@ -644,7 +648,7 @@ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | gre
 
 ```
 
-Resultado:
+Result:
 ```
 Name:         eks-admin-token-b5zv4
 Namespace:    kube-system
@@ -661,7 +665,7 @@ namespace:  11 bytes
 token:      <authentication_token>
 ```
 
-Inicie a kubectl proxy.
+Start the kubectl proxy.
 
 
 ```
@@ -669,51 +673,52 @@ kubectl proxy  --accept-hosts='^*$'
 ```
 
 
-3. Comando para liberar o acesso de máquina remota (comanda deve ser executado no seu computador):
+3. Command to allow remote machine access (commands must be executed on your computer):
 
 ```
 ssh -L 8001:localhost:8001 k8s-admin@192.168.6.1
 
 ```
 
-4. Abra o link a seguir com um navegador da web para acessar o endpoint do painel: http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
+4. Open the following link with a web browser to access the dashboard endpoint:
+http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
 
-5. Selecione Token, cole a saída `<authentication_token>` do comando anterior no campo Token e selecione SIGN IN (FAZER LOGIN).
+5. Select token, paste output `<authentication_token>` from the previous command in the Token field and select SIGN IN.
 
-E pronto!!
+And ready!!
 
 
-### Etapa 4: Habilitar o modo inseguro em dashboard K8s
+### Step 4: Enable Unsafe Mode on K8s Dashboard
 
-Para expor o serviço do dashboard do kubernetes (não aconselhável para produção), siguir os passos abaixo:
+To expose the kubernetes dashboard service (not advisable for production), follow the steps below:
 
-1. Em seguida, configure a maneira "NodePort" de acessá-lo. Altere 'type: ClusterIP' para 'type: NodePort' e salve:
+1. Then configure the "NodePort" way to access it. Change 'type: ClusterIP' to 'type: NodePort' and save:
 ```
 KUBE_EDITOR="nano" kubectl -n kube-system edit service kubernetes-dashboard
 ```
 
-2. Descubra o nó e a porta exposta onde o painel está sendo executado:
+2. Discover the node and the exposed port where the panel is running:
 ```
 kubectl -n kube-system describe pod kubernetes-dashboard-*
 kubectl -n kube-system get service kubernetes-dashboard
 ```
-3. Conceder permissões de administrador de cluster ao Painel:
-- Exemplo de criação de usuário administrativo:
+3. Grant Cluster Administrator Permissions to Dashboard:
+- Example of administrative user creation:
 ```
 kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 ```
 
 
-4. Acesse o Dashboard pelo link - `http: //:` que você obteve como parte da etapa 2
-Exemplo: `https://192.168.6.3:31843`
+4. Access Dashboard via the link - `http: //:` that you got as part of step 2
+Example: `https://192.168.6.3:31843`
 
 
 
 
 
-### REFERÊNCIAS
+### REFERENCES
 
-[Fonte1 - Principal: Configurando 3 nodes em cluster kuberntes](https://computingforgeeks.com/how-to-setup-3-node-kubernetes-cluster-on-ubuntu-18-04-with-weave-net-cni/)
+[Source 1 - Main: Configuring 3 nodes in cluster kubernetes](https://computingforgeeks.com/how-to-setup-3-node-kubernetes-cluster-on-ubuntu-18-04-with-weave-net-cni/)
 
 
 [Fonte2 - Instalando Kubernetes no CentOS, Ubuntu e Debian](https://www.itzgeek.com/how-tos/linux/centos-how-tos/how-to-install-kubernetes-on-centos-7-ubuntu-18-04-16-04-debian-9.html)

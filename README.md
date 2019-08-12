@@ -723,26 +723,26 @@ Example: `https://192.168.6.3:31843`
 
 [Source 2 - Installing Kubernetes on CentOS, Ubuntu and Debian](https://www.itzgeek.com/how-tos/linux/centos-how-tos/how-to-install-kubernetes-on-centos-7-ubuntu-18-04-16-04-debian-9.html)
 
-[Fonte3 - Instalando e configurando um deploy com kuberntes em 5 min](https://codeburst.io/getting-started-with-kubernetes-deploy-a-docker-container-with-kubernetes-in-5-minutes-eb4be0e96370)
+[Source 3 - Instalando e configurando um deploy com kuberntes em 5 min](https://codeburst.io/getting-started-with-kubernetes-deploy-a-docker-container-with-kubernetes-in-5-minutes-eb4be0e96370)
 
-[Fonte4 - Instalando KubeAdmin](https://v1-12.docs.kubernetes.io/docs/setup/independent/install-kubeadm/)
+[Source 4 - Instalando KubeAdmin](https://v1-12.docs.kubernetes.io/docs/setup/independent/install-kubeadm/)
 
-[Fonte5 - Dashboard Tutorial](https://docs.aws.amazon.com/pt_br/eks/latest/userguide/dashboard-tutorial.html)
+[Source 5 - Dashboard Tutorial](https://docs.aws.amazon.com/pt_br/eks/latest/userguide/dashboard-tutorial.html)
 
-[Fonte6 - Dashboard Tutorial Bug1](https://github.com/kubernetes/dashboard/issues/2735#issuecomment-402792561)
+[Source 6 - Dashboard Tutorial Bug1](https://github.com/kubernetes/dashboard/issues/2735#issuecomment-402792561)
 
-[Fonte7 - Dashboard Tutorial Bug2](https://stackoverflow.com/questions/39864385/how-to-access-expose-kubernetes-dashboard-service-outside-of-a-cluster)
+[Source 7 - Dashboard Tutorial Bug2](https://stackoverflow.com/questions/39864385/how-to-access-expose-kubernetes-dashboard-service-outside-of-a-cluster)
 
-[Fonte8 - Criando usuário documentação oficial](https://github.com/kubernetes/dashboard/wiki/Creating-sample-user)
+[Source 8 - Criando usuário documentação oficial](https://github.com/kubernetes/dashboard/wiki/Creating-sample-user)
 
-[Fonte9 - Habilitar o modo inseguro em dashboard K8s](https://github.com/kubernetes/dashboard/issues/2034)
+[Source 9 - Habilitar o modo inseguro em dashboard K8s](https://github.com/kubernetes/dashboard/issues/2034)
 
-[Fonte10 - Desabilitar o modo swap em nodes Kubernetes](https://docs.platform9.com/support/disabling-swap-kubernetes-node/)
+[Source 10 - Desabilitar o modo swap em nodes Kubernetes](https://docs.platform9.com/support/disabling-swap-kubernetes-node/)
 
-[Fonte11 - Modo inseguro no docker](https://github.com/Juniper/contrail-docker/wiki/Configure-docker-service-to-use-insecure-registry)
+[Source 11 - Modo inseguro no docker](https://github.com/Juniper/contrail-docker/wiki/Configure-docker-service-to-use-insecure-registry)
 
-[Fonte 12 - CGROUP DRIVER DOCKE](https://kubernetes.io/docs/setup/cri/)
+[Source 12 - CGROUP DRIVER DOCKE](https://kubernetes.io/docs/setup/cri/)
 
-[Fonte 13 - CGROUP DRIVER DOCKE - resolvendo bug](https://github.com/openshift/origin/issues/18776)
+[Source 13 - CGROUP DRIVER DOCKE - resolvendo bug](https://github.com/openshift/origin/issues/18776)
 
-[Fonte 14 - Troubleshooting do kubeadm](https://kubernetes.io/docs/setup/independent/troubleshooting-kubeadm/)
+[Source 14 - Troubleshooting do kubeadm](https://kubernetes.io/docs/setup/independent/troubleshooting-kubeadm/)

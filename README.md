@@ -723,9 +723,9 @@ Example: `https://192.168.6.3:31843`
 
 [Source 2 - Installing Kubernetes on CentOS, Ubuntu and Debian](https://www.itzgeek.com/how-tos/linux/centos-how-tos/how-to-install-kubernetes-on-centos-7-ubuntu-18-04-16-04-debian-9.html)
 
-[Source 3 - Instalando e configurando um deploy com kuberntes em 5 min](https://codeburst.io/getting-started-with-kubernetes-deploy-a-docker-container-with-kubernetes-in-5-minutes-eb4be0e96370)
+[Source 3 - Installing and configuring a 5 min deploy with kuberntes](https://codeburst.io/getting-started-with-kubernetes-deploy-a-docker-container-with-kubernetes-in-5-minutes-eb4be0e96370)
 
-[Source 4 - Instalando KubeAdmin](https://v1-12.docs.kubernetes.io/docs/setup/independent/install-kubeadm/)
+[Source 4 - Installing KubeAdmin](https://v1-12.docs.kubernetes.io/docs/setup/independent/install-kubeadm/)
 
 [Source 5 - Dashboard Tutorial](https://docs.aws.amazon.com/pt_br/eks/latest/userguide/dashboard-tutorial.html)
 
@@ -733,16 +733,16 @@ Example: `https://192.168.6.3:31843`
 
 [Source 7 - Dashboard Tutorial Bug2](https://stackoverflow.com/questions/39864385/how-to-access-expose-kubernetes-dashboard-service-outside-of-a-cluster)
 
-[Source 8 - Criando usuário documentação oficial](https://github.com/kubernetes/dashboard/wiki/Creating-sample-user)
+[Source 8 - Creating official user documentation](https://github.com/kubernetes/dashboard/wiki/Creating-sample-user)
 
-[Source 9 - Habilitar o modo inseguro em dashboard K8s](https://github.com/kubernetes/dashboard/issues/2034)
+[Source 9 - Enable unsafe mode on K8s dashboard](https://github.com/kubernetes/dashboard/issues/2034)
 
-[Source 10 - Desabilitar o modo swap em nodes Kubernetes](https://docs.platform9.com/support/disabling-swap-kubernetes-node/)
+[Source 10 - Disable swap mode on Kubernetes nodes](https://docs.platform9.com/support/disabling-swap-kubernetes-node/)
 
-[Source 11 - Modo inseguro no docker](https://github.com/Juniper/contrail-docker/wiki/Configure-docker-service-to-use-insecure-registry)
+[Source 11 - Docker insecure mode](https://github.com/Juniper/contrail-docker/wiki/Configure-docker-service-to-use-insecure-registry)
 
 [Source 12 - CGROUP DRIVER DOCKE](https://kubernetes.io/docs/setup/cri/)
 
 [Source 13 - CGROUP DRIVER DOCKE - resolvendo bug](https://github.com/openshift/origin/issues/18776)
 
-[Source 14 - Troubleshooting do kubeadm](https://kubernetes.io/docs/setup/independent/troubleshooting-kubeadm/)
+[Source 14 - Troubleshooting of kubeadm](https://kubernetes.io/docs/setup/independent/troubleshooting-kubeadm/)
